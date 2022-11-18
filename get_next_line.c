@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:47:47 by nibenoit          #+#    #+#             */
-/*   Updated: 2022/11/18 00:58:57 by nibenoit         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:35:05 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,22 +90,22 @@ char	*get_next_line(int fd)
 	return (tmp);
 }
 
-int	main(void)
-{
-	int		fd1;
-	char	*line;
-	fd1 = open("test.txt", O_RDONLY);
-	printf("%d\n", fd1);
-	int	i = 1;
+// int	main(void)
+// {
+// 	int		fd1;
+// 	char	*line;
+// 	fd1 = open("test.txt", O_RDONLY);
+// 	printf("%d\n", fd1);
+// 	int	i = 1;
 
-	while (i < 5)
-	{
-		line = get_next_line(fd1);
-		printf("line [%d]: %s\n", i, line);
-		free(line);
-		i++;
+// 	while (i < 7)
+// 	{
+// 		line = get_next_line(fd1);
+// 		printf("line [%d]: %s\n", i, line);
+// 		free(line);
+// 		i++;
 
-	}
-	close(fd1);
-	return (0);
-}
+// 	}
+// 	close(fd1);
+// 	return (0);
+// }

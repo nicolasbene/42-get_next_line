@@ -6,7 +6,7 @@
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:48:45 by nibenoit          #+#    #+#             */
-/*   Updated: 2022/11/18 00:58:51 by nibenoit         ###   ########.fr       */
+/*   Updated: 2022/11/18 11:15:45 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = 0;
+	dst[i] = '\0';
 	while (src[i])
 		i++;
 	return (i);
