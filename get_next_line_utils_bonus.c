@@ -1,37 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nibenoit <nibenoit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:48:45 by nibenoit          #+#    #+#             */
-/*   Updated: 2022/11/21 15:28:12 by nibenoit         ###   ########.fr       */
+/*   Created: 2022/11/18 16:09:20 by nibenoit          #+#    #+#             */
+/*   Updated: 2022/11/21 15:46:26 by nibenoit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (s && s[i])
+	while (str && str[i])
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
+{
+	size_t	i;
+
+	if (size == 0)
+		return (ft_strlen(src));
+	i = 0;
+	while (src[i] && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	while (src[i])
 		i++;
 	return (i);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
+	char	*new;
 	int		i;
 	int		j;
-	char	*new;
 
+	i = 0;
 	new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!new)
 		return (NULL);
-	i = 0;
 	while (s1 && s1[i])
 	{
 		new[i] = s1[i];
@@ -46,24 +64,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	free(s2);
-	new[i + j] = 0;
+	new[i + j] = '\0';
 	return (new);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	i = 0;
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	while (src[i] && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	while (src[i])
-		i++;
-	return (i);
 }
